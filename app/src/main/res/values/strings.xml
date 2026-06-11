@@ -1,3 +1,30 @@
 <resources>
     <string name="app_name">MedicalAppointment</string>
+    
+    <!-- Welcome Header -->
+    <string name="welcome_prefix">Chào bạn,</string>
+    <string name="default_user_name">Nguyễn Văn A</string>
+    
+    <!-- Banner -->
+    <string name="banner_badge">Gói Khám Sức Khỏe</string>
+    <string name="banner_title">Tầm soát tổng quát, an tâm sống khỏe</string>
+    <string name="banner_subtitle">Ưu đãi 20% cho các gói khám</string>
+    
+    <!-- Action Cards -->
+    <string name="booking_title">Đặt lịch khám</string>
+    <string name="booking_subtitle">Chọn bác sĩ &amp; thời gian</string>
+    <string name="health_records_title">Hồ sơ sức khỏe</string>
+    
+    <!-- Specialty Section -->
+    <string name="specialty_section_title">Chuyên khoa nổi bật</string>
+    <string name="view_all">Xem tất cả</string>
+    <string name="specialty_cardiology">Nội tim mạch</string>
+    <string name="specialty_pediatrics">Nhi khoa</string>
+    <string name="specialty_obstetrics_gynecology">Sản phụ khoa</string>
+    
+    <!-- Bottom Navigation -->
+    <string name="nav_home">Trang chủ</string>
+    <string name="nav_appointments">Lịch hẹn</string>
+    <string name="nav_notifications">Thông báo</string>
+    <string name="nav_profile">Tài khoản</string>
 </resources>

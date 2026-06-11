@@ -1,0 +1,542 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://tools.android.com/tools"
+    android:id="@+id/cl_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_screen"
+    tools:context=".data.ui.main.MainActivity">
+
+    <!-- Scrollable Content -->
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nsv_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toTopOf="@+id/divider_bottom_nav"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_scroll_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="24dp">
+
+            <!-- Header Section -->
+            <ImageView
+                android:id="@+id/iv_header_logo"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="20dp"
+                android:contentDescription="@null"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_shield_plus" />
+
+            <TextView
+                android:id="@+id/tv_welcome_prefix"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:fontFamily="sans-serif"
+                android:text="@string/welcome_prefix"
+                android:textColor="@color/text_muted"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toTopOf="@+id/tv_user_name"
+                app:layout_constraintStart_toEndOf="@+id/iv_header_logo"
+                app:layout_constraintTop_toTopOf="@+id/iv_header_logo"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <TextView
+                android:id="@+id/tv_user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-black"
+                android:text="@string/default_user_name"
+                android:textColor="@color/blue_primary"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/iv_header_logo"
+                app:layout_constraintStart_toStartOf="@+id/tv_welcome_prefix"
+                app:layout_constraintTop_toBottomOf="@+id/tv_welcome_prefix" />
+
+            <!-- Banner Section (Promo Card) -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cv_promo_banner"
+                android:layout_width="0dp"
+                android:layout_height="170dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="16dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:strokeWidth="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/iv_header_logo">
+
+                <!-- Gradient background representing the modern clinic interior fallback -->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bg_banner_gradient"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:id="@+id/tv_banner_badge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_banner_badge"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="@string/banner_badge"
+                        android:textColor="@color/white"
+                        android:textSize="11sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tv_banner_title"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginEnd="80dp"
+                        android:fontFamily="sans-serif-black"
+                        android:text="@string/banner_title"
+                        android:textColor="@color/blue_dark"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_banner_badge" />
+
+                    <TextView
+                        android:id="@+id/tv_banner_subtitle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="sans-serif"
+                        android:text="@string/banner_subtitle"
+                        android:textColor="@color/blue_primary"
+                        android:textSize="13sp"
+                        app:layout_constraintEnd_toEndOf="@+id/tv_banner_title"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_banner_title" />
+
+                    <!-- Slide Indicator Dots -->
+                    <LinearLayout
+                        android:id="@+id/layout_dots"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent">
+
+                        <View
+                            android:layout_width="16dp"
+                            android:layout_height="6dp"
+                            android:layout_marginEnd="4dp"
+                            android:background="@drawable/bg_indicator_active" />
+
+                        <View
+                            android:layout_width="6dp"
+                            android:layout_height="6dp"
+                            android:layout_marginEnd="4dp"
+                            android:background="@drawable/bg_indicator_inactive" />
+
+                        <View
+                            android:layout_width="6dp"
+                            android:layout_height="6dp"
+                            android:background="@drawable/bg_indicator_inactive" />
+
+                    </LinearLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Booking Card (Primary Action) -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/btn_booking"
+                android:layout_width="0dp"
+                android:layout_height="90dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:strokeWidth="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cv_promo_banner">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bg_booking_card"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp">
+
+                    <View
+                        android:id="@+id/view_booking_icon_bg"
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:background="@drawable/bg_icon_booking"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/iv_booking_icon"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:contentDescription="@null"
+                        app:layout_constraintBottom_toBottomOf="@+id/view_booking_icon_bg"
+                        app:layout_constraintEnd_toEndOf="@+id/view_booking_icon_bg"
+                        app:layout_constraintStart_toStartOf="@+id/view_booking_icon_bg"
+                        app:layout_constraintTop_toTopOf="@+id/view_booking_icon_bg"
+                        app:srcCompat="@drawable/ic_calendar_plus" />
+
+                    <TextView
+                        android:id="@+id/tv_booking_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:fontFamily="sans-serif-black"
+                        android:text="@string/booking_title"
+                        android:textColor="@color/blue_dark"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toTopOf="@+id/tv_booking_subtitle"
+                        app:layout_constraintStart_toEndOf="@+id/view_booking_icon_bg"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_chainStyle="packed" />
+
+                    <TextView
+                        android:id="@+id/tv_booking_subtitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif"
+                        android:text="@string/booking_subtitle"
+                        android:textColor="@color/blue_primary"
+                        android:textSize="12sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/tv_booking_title"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_booking_title" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Guideline for 2-column actions -->
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_vertical_50"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.5" />
+
+            <!-- Health Records Card (Secondary Action) -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/btn_health_records"
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardBackgroundColor="@color/bg_card"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:strokeColor="@color/border_gray"
+                app:strokeWidth="1dp"
+                app:layout_constraintEnd_toStartOf="@+id/guideline_vertical_50"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_booking">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="16dp">
+
+                    <View
+                        android:id="@+id/view_health_records_icon_bg"
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:background="@drawable/bg_circle_icon"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/iv_health_records_icon"
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:contentDescription="@null"
+                        app:layout_constraintBottom_toBottomOf="@+id/view_health_records_icon_bg"
+                        app:layout_constraintEnd_toEndOf="@+id/view_health_records_icon_bg"
+                        app:layout_constraintStart_toStartOf="@+id/view_health_records_icon_bg"
+                        app:layout_constraintTop_toTopOf="@+id/view_health_records_icon_bg"
+                        app:srcCompat="@drawable/ic_health_record" />
+
+                    <TextView
+                        android:id="@+id/tv_health_records_title"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:fontFamily="sans-serif-medium"
+                        android:gravity="center"
+                        android:text="@string/health_records_title"
+                        android:textColor="@color/text_dark"
+                        android:textSize="13sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/view_health_records_icon_bg" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Specialty Section Header -->
+            <TextView
+                android:id="@+id/tv_specialty_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="24dp"
+                android:fontFamily="sans-serif-black"
+                android:text="@string/specialty_section_title"
+                android:textColor="@color/text_dark"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_health_records" />
+
+            <TextView
+                android:id="@+id/tv_view_all_specialties"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/view_all"
+                android:textColor="@color/blue_primary"
+                android:textSize="13sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_specialty_title"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tv_specialty_title" />
+
+            <!-- Specialties Horizontal List -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_specialties"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:clipToPadding="false"
+                android:orientation="horizontal"
+                android:paddingStart="16dp"
+                android:paddingEnd="4dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_specialty_title"
+                tools:listitem="@layout/item_specialty" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- Bottom Navigation Bar Divider -->
+    <View
+        android:id="@+id/divider_bottom_nav"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@color/border_gray"
+        app:layout_constraintBottom_toTopOf="@+id/cl_bottom_nav"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Bottom Navigation Bar Container -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_bottom_nav"
+        android:layout_width="0dp"
+        android:layout_height="72dp"
+        android:background="@color/bg_card"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <!-- Navigation Item 1: Trang chủ (Active) -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/btn_nav_home"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btn_nav_appointments"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <View
+                android:id="@+id/view_active_home_bg"
+                android:layout_width="44dp"
+                android:layout_height="28dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_active_nav_item"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/iv_nav_home"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:contentDescription="@null"
+                app:layout_constraintBottom_toBottomOf="@+id/view_active_home_bg"
+                app:layout_constraintEnd_toEndOf="@+id/view_active_home_bg"
+                app:layout_constraintStart_toStartOf="@+id/view_active_home_bg"
+                app:layout_constraintTop_toTopOf="@+id/view_active_home_bg"
+                app:srcCompat="@drawable/ic_nav_home" />
+
+            <TextView
+                android:id="@+id/tv_nav_home"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/nav_home"
+                android:textColor="@color/blue_primary"
+                android:textSize="11sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view_active_home_bg" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- Navigation Item 2: Lịch hẹn (Inactive) -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/btn_nav_appointments"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btn_nav_notifications"
+            app:layout_constraintStart_toEndOf="@+id/btn_nav_home"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/iv_nav_appointments"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="14dp"
+                android:contentDescription="@null"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_nav_appointments" />
+
+            <TextView
+                android:id="@+id/tv_nav_appointments"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:fontFamily="sans-serif"
+                android:text="@string/nav_appointments"
+                android:textColor="@color/nav_inactive"
+                android:textSize="11sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/iv_nav_appointments" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- Navigation Item 3: Thông báo (Inactive) -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/btn_nav_notifications"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btn_nav_profile"
+            app:layout_constraintStart_toEndOf="@+id/btn_nav_appointments"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/iv_nav_notifications"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="14dp"
+                android:contentDescription="@null"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_nav_notifications" />
+
+            <TextView
+                android:id="@+id/tv_nav_notifications"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:fontFamily="sans-serif"
+                android:text="@string/nav_notifications"
+                android:textColor="@color/nav_inactive"
+                android:textSize="11sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/iv_nav_notifications" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- Navigation Item 4: Tài khoản (Inactive) -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/btn_nav_profile"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btn_nav_notifications"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/iv_nav_profile"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="14dp"
+                android:contentDescription="@null"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_nav_profile" />
+
+            <TextView
+                android:id="@+id/tv_nav_profile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:fontFamily="sans-serif"
+                android:text="@string/nav_profile"
+                android:textColor="@color/nav_inactive"
+                android:textSize="11sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/iv_nav_profile" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
