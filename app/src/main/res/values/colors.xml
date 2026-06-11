@@ -7,4 +7,16 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    
+    <!-- Medical Appointment Brand Colors -->
+    <color name="blue_primary">#0A59C4</color>
+    <color name="blue_dark">#002D6E</color>
+    <color name="blue_light">#E6EDFF</color>
+    <color name="bg_screen">#FBFDFF</color>
+    <color name="bg_card">#FFFFFF</color>
+    <color name="text_dark">#1E293B</color>
+    <color name="text_muted">#64748B</color>
+    <color name="border_gray">#E2E8F0</color>
+    <color name="banner_badge_bg">#0957C3</color>
+    <color name="nav_inactive">#94A3B8</color>
 </resources>
