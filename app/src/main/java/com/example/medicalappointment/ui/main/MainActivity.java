@@ -1,4 +1,4 @@
-package com.example.medicalappointment.data.ui.main;
+package com.example.medicalappointment.ui.main;
 
 import android.os.Bundle;
 import android.widget.Toast;
@@ -7,8 +7,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.medicalappointment.R;
-import com.example.medicalappointment.data.model.Specialty;
-import com.example.medicalappointment.data.ui.adapter.SpecialtyAdapter;
+import com.example.medicalappointment.ui.adapter.SpecialtyAdapter;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {

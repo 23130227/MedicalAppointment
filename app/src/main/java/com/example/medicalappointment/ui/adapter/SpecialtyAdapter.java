@@ -1,4 +1,4 @@
-package com.example.medicalappointment.data.ui.adapter;
+package com.example.medicalappointment.ui.adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
