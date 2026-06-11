@@ -1,4 +1,4 @@
-package com.example.medicalappointment.data.ui.main;
+package com.example.medicalappointment.ui.main;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MediatorLiveData;
