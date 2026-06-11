@@ -24,6 +24,7 @@
     <string name="already_have_account">Đã có tài khoản? </string>
     <string name="login_now">Đăng nhập ngay</string>
 
+
     <!-- Welcome Header -->
     <string name="welcome_prefix">Chào bạn,</string>
     <string name="default_user_name">Nguyễn Văn A</string>
