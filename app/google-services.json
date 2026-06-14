@@ -12,7 +12,20 @@
           "package_name": "com.example.medicalappointment"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "691672467667-2ofpval01rjj09cmqord3jacdscnaa64.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.medicalappointment",
+            "certificate_hash": "bec1c65de89cf320301cb6f1ce7c932d314e8472"
+          }
+        },
+        {
+          "client_id": "691672467667-7jssn2p3cm39ttj9n4o059k0v9cdfl9o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyAQOuAy7VMkK33GV6qx4fnyKTEU1cF72r4"
@@ -20,7 +33,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "691672467667-7jssn2p3cm39ttj9n4o059k0v9cdfl9o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

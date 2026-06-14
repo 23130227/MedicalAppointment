@@ -31,5 +31,14 @@
             android:name=".ui.main.MainActivityTest"
             android:exported="false" />
         <activity android:name=".ui.auth.ForgotPasswordActivity" />
+        <activity
+            android:name=".ui.admin.AppointmentListActivity"
+            android:exported="false"
+            android:label="Admin: Appointments" />
+
+        <activity
+            android:name=".ui.admin.AppointmentDetailActivity"
+            android:exported="false"
+            android:label="Manage Appointment" />
     </application>
 </manifest>

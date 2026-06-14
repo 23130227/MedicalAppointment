@@ -111,4 +111,38 @@ public class AppointmentRepository {
                 .addOnSuccessListener(aVoid -> callback.onSuccess(null))
                 .addOnFailureListener(callback::onFailure);
     }
+
+    public LiveData<List<Appointment>> getAllAppointments() {
+        MutableLiveData<List<Appointment>> liveData = new MutableLiveData<>();
+        firestore.collection(Collections.APPOINTMENTS)
+                .orderBy("createdAt", Query.Direction.DESCENDING)
+                .addSnapshotListener((value, error) -> {
+                    if (error != null) {
+                        liveData.setValue(new ArrayList<>());
+                        return;
+                    }
+                    List<Appointment> list = new ArrayList<>();
+                    if (value != null) {
+                        for (QueryDocumentSnapshot doc : value) {
+                            Appointment appt = doc.toObject(Appointment.class);
+                            appt.setId(doc.getId());
+                            list.add(appt);
+                        }
+                    }
+                    liveData.setValue(list);
+                });
+        return liveData;
+    }
+
+    public void deleteAppointment(String appointmentId, Callback<Void> callback) {
+        if (appointmentId == null || appointmentId.isEmpty()) {
+            callback.onFailure(new IllegalArgumentException("Appointment ID cannot be null or empty for delete"));
+            return;
+        }
+        firestore.collection(Collections.APPOINTMENTS)
+                .document(appointmentId)
+                .delete()
+                .addOnSuccessListener(aVoid -> callback.onSuccess(null))
+                .addOnFailureListener(callback::onFailure);
+    }
 }
